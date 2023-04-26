@@ -1,0 +1,22 @@
+Kubernetes apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csgo-deployment
+spec:
+  selector:
+    matchLabels:
+      app: csgo
+  template:
+    metadata:
+      labels:
+        app: csgo
+    spec:
+      containers:
+      - name: csgo
+        image: csgo:metamod
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27015
